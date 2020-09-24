@@ -1,0 +1,78 @@
+#define MODULES_DIRECTORY node_modules
+
+#include "cfgFunctions.hpp"
+#include "cfgParams.hpp"
+#include "cfgMission.hpp"
+#include "cfgHeloStages.hpp"
+
+#include "node_modules\grad-scoreboard\grad_scoreboard.hpp"
+#include "node_modules\grad-islandconfig\cfgGradIslands.hpp"
+
+
+// HEADER ======================================================================
+class Header
+{
+    gameType = TDM;
+    minPlayers = 2;
+    maxPlayers = 150;
+};
+
+// LOAD SCREEN =================================================================
+onLoadName = "GAME OF GUNS";
+onLoadMission = "";
+author = "McDiod für Gruppe Adler";
+loadScreen = "data\logo.paa";
+
+// MISC ========================================================================
+respawn = 3;
+respawnDelay = 9999;
+respawnVehicleDelay = 0;
+allowFunctionsRecompile = 1;
+respawnTemplates[] = {"Base"};
+respawnOnStart = -1;
+respawnDialog = 0;
+disabledAI = 1;
+
+//mcdiod, nomisum
+enableDebugConsole[] = {
+	"76561198044320063",
+	"76561197961080101"
+};
+
+// TITLES AND DIALOGS ==========================================================
+class RscTitles {
+    #include "dialog\rscTitles.hpp"
+};
+#include "dialog\dialogs.hpp"
+
+// NOTIFICATIONS ===============================================================
+class CfgNotifications {
+    class helogame_notification1 {
+        title = "%1";
+        iconPicture = "\A3\ui_f\data\map\markers\military\warning_CA.paa";
+        description = "%2";
+        duration = 5;
+        priority = 0;
+    };
+};
+
+//SOUNDS =======================================================================
+class CfgSounds
+{
+    sounds[] = {};
+    class helogame_upgradeWeaponSound
+    {
+        // how the sound is referred to in the editor (e.g. trigger effects)
+        name = "helogame_upgradeWeaponSound";
+        // filename, volume, pitch
+        sound[] = {"data\switchsound.ogg", 1, 1};
+        // subtitle delay in seconds, subtitle text
+        titles[] = {0, ""};
+    };
+};
+
+//CORPSE MANAGER ===============================================================
+corpseManagerMode = 1; 					                                                                                                // Type of removed bodies: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
+corpseLimit = 0; 						                                                                                                        // Max number of bodies which can be available at the same time. When exceeded, start deleting immediately.
+corpseRemovalMinTime = 5; 		                                                                                                    // Minimal time in seconds a body stays in the scene (can't be removed sooner).
+corpseRemovalMaxTime = 10; 		                                                                                                    // Maximal time in seconds after which a dead body is removed (can't stay longer)
